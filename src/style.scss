@@ -1,0 +1,87 @@
+@use "sass:math";
+
+body {
+  font-family: 'Times New Roman', sans-serif;
+  margin: 0;
+  font-size: 6pt;
+}
+
+$size-c: 297mm;
+$size-a: math.div($size-c, 2);
+$size-b: 210mm;
+
+@page {
+  margin: 0;
+  padding: 0;
+  size: $size-c $size-b;
+}
+
+.double-page {
+  box-sizing: border-box;
+  page-break-inside: avoid;
+  display: flex;
+  flex-direction: row;
+  width: $size-c;
+}
+
+.single-page {
+  padding: 5mm;
+  width: $size-a;
+  height: $size-b;
+  box-sizing: border-box;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+@media screen {
+  body {
+    background: #ccc;
+  }
+
+  .double-page {
+    background: white;
+    box-shadow: 0.5mm 1.5mm 3mm #0003;
+    margin: 5mm;
+  }
+}
+
+.invalid {
+  text-decoration: line-through;
+}
+
+.cross-out {
+  text-decoration: line-through 1.5pt #000b;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.grow {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.center-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.caption {
+  font-size: 5pt;
+  text-align: center;
+  margin-top: 0.5mm;
+}
+
+.filled-in {
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
